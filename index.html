@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Saufen - Das Spiel</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="spielfeld.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#einModal">
+            Einstellungen
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="einModal">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Wähle die Anzahl der Spieler aus</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <select class="form-control" id="Spieleranzahlauswahl">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option selected>4</option>
+                    </select>
+                  </div>
+                  <div>
+                    <input class="form-control" type="text" placeholder="Default input" id="inputname1">
+                    <input class="form-control" type="text" placeholder="Default input" id="inputname2">
+                    <input class="form-control" type="text" placeholder="Default input" id="inputname3">
+                    <input class="form-control" type="text" placeholder="Default input" id="inputname4">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                    <button type="button" class="btn btn-primary" onclick="speichern()"
+                      data-dismiss="modal">Speichern</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+
+  <!-- Spielfeld -->
+  <div class="container-fluid" style="margin-top: 30px;">
+    <div class="row justify-content-md-center">
+      <div class="col-md-auto">
+        <!--Würfel Spalte -->
+        <a onclick="würfeln()" class="btn btn-success btn-icon-split">
+          <span class="icon text-white-50">
+            <i class="fas fa-check"></i>
+          </span>
+          <span class="text">Würfeln</span>
+        </a>
+        <div></div>
+        <img src="bilder/würfelstandard.png" class="float-none" style="margin-top: 10px; margin-left: 9px;" alt="würfel"
+          id="würfelimg">
+      </div>
+
+      <!--Spielfeld Spalte -->
+      <div class=".col-md-auto">
+        <canvas id="spielfeld" width="901" height="1601" style="background-image: url('bilder/spielbrettkachel.png')"></canvas>
+      </div>
+
+      <!--Highscore Spalte -->
+      <!--Listenitems plätze vertauschen https://jsfiddle.net/16sebrjq/-->
+      <div class="col-md-auto">
+        <ul class="list-group">
+          <div class="d-flex justify-content-between align-items-center" id="outputname11">
+          <li class="list-group-item" id="outputname1">
+            <span class="badge badge-primary badge-pill" id="outputname1zahl">11</span>
+          </li>
+        </div>
+          <li class="list-group-item d-flex justify-content-between align-items-center" id="outputname2"
+            style="display: none;">
+            <span class="badge badge-primary badge-pill" id="outputname2zahl"></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center" id="outputname3"
+            style="display: none;">
+            <span class="badge badge-primary badge-pill" id="outputname3zahl"></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center" id="outputname4"
+            style="display: none;">
+            <span class="badge badge-primary badge-pill" id="outputname4zahl"></span>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.slim.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="saufen.js"></script>
+
+  <script type="text/javascript">
+    $(window).on('load', function () {
+      $('#einModal').modal('show');
+    });
+  </script>
+</body>
+
+</html>
